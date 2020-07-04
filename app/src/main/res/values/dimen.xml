@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="back_arrow_size">@dimen/_25sdp</dimen>
+    <dimen name="small_text_size">@dimen/_8sdp</dimen>
+    <dimen name="normal_text_size">@dimen/_10sdp</dimen>
+    <dimen name="meduim_text_size">@dimen/_12sdp</dimen>
+    <dimen name="big_text_size">@dimen/_15sdp</dimen>
+    <dimen name="extra_big_text_size">@dimen/_18sdp</dimen>
+    <dimen name="extra_extra_big_text_size">@dimen/_20sdp</dimen>
+</resources>

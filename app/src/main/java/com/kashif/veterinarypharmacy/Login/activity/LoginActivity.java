@@ -1,4 +1,4 @@
-package com.kashif.veterinarypharmacy.Login;
+package com.kashif.veterinarypharmacy.Login.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 

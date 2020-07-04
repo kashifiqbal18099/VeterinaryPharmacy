@@ -2,4 +2,13 @@
     <string name="app_name">VeterinaryPharmacy</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
+    <string name="signup">Signup</string>
+    <string name="name">Name</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="email_id">Email Id</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="i_accept_to_the_terms_and_conditions">I accept to the Terms and Conditions</string>
+    <string name="signup_now">Signup now</string>
+    <string name="login">Login</string>
 </resources>
