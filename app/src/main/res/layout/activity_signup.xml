@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<layout>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
@@ -37,7 +37,7 @@
                         android:layout_alignParentTop="true"
                         android:layout_margin="@dimen/_10sdp"
                         android:rotation="180"
-                        android:src="@drawable/ic_black_arrow" />
+                        app:srcCompat="@drawable/ic_black_arrow" />
 
 
                     <TextView
