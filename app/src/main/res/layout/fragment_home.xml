@@ -5,18 +5,18 @@
 
     </data>
     <RelativeLayout
-        xmlns:tools="http://schemas.android.com/tools"
+
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".Home.fragment.HomeFragment"/>
+        android:layout_height="match_parent" >
 
 
     <com.denzcoskun.imageslider.ImageSlider
         android:id="@+id/image_slider"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="@dimen/_150sdp"
         app:iss_auto_cycle="true"
         app:iss_period="1000"
         app:iss_delay="0"/>
 
+    </RelativeLayout>
 </layout>
