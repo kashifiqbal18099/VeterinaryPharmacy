@@ -11,6 +11,40 @@
     android:background="@color/button_blue">
 
 
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        android:id="@+id/back_linear"
+
+        >
+
+
+        <ImageView
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:id="@+id/back_btn"
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/ic_back"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textStyle="normal"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:text="Some Text"
+            android:maxLines="1"
+            android:layout_gravity="center"
+            android:textSize="@dimen/_10sdp"
+            />
+    </LinearLayout>
+
+
+
     <ImageView
         android:layout_width="@dimen/_100sdp"
         android:layout_height="@dimen/_30sdp"

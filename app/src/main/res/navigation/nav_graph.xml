@@ -4,6 +4,14 @@
     app:startDestination="@id/homeFragment2">
     <fragment
         android:id="@+id/homeFragment2"
-        android:name="com.kashif.veterinarypharmacy.Home.fragment.HomeFragment"
-        android:label="HomeFragment" />
+        android:name="com.kashif.veterinarypharmacy.home.fragment.HomeFragment"
+        android:label="HomeFragment" >
+        <action
+            android:id="@+id/action_homeFragment2_to_productListFragment"
+            app:destination="@id/productListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/productListFragment"
+        android:name="com.kashif.veterinarypharmacy.home.fragment.ProductListFragment"
+        android:label="ProductListFragment" />
 </navigation>
