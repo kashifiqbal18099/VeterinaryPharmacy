@@ -11,4 +11,6 @@
     <color name="dark_grey">#888484</color>
     <color name="yellow">#fdcf00</color>
     <color name="extra_ligh_grey">#ecedef</color>
+    <color name="text_pink">#dc3f74</color>
+    <color name="transparent">#00000000</color>
 </resources>

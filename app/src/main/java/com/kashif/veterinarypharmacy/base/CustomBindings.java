@@ -4,6 +4,7 @@ import android.graphics.drawable.Drawable;
 import android.widget.ImageView;
 
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.databinding.BindingAdapter;
 
 import com.bumptech.glide.Glide;
@@ -13,6 +14,7 @@ import com.bumptech.glide.load.engine.GlideException;
 import com.bumptech.glide.load.resource.bitmap.CircleCrop;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
+import com.kashif.veterinarypharmacy.R;
 
 public class CustomBindings {
 
@@ -32,5 +34,20 @@ public class CustomBindings {
                 return false;
             }
         }).into(imageView);
+    }
+
+    @BindingAdapter("customtint")
+    public static void CustomTint(ImageView imageView , boolean isFav)
+    {
+
+        if(isFav)
+        {
+            imageView.setColorFilter(ContextCompat.getColor(imageView.getContext(), R.color.text_pink), android.graphics.PorterDuff.Mode.SRC_IN);
+        }
+        else
+        {
+            imageView.setColorFilter(ContextCompat.getColor(imageView.getContext(), R.color.dark_grey), android.graphics.PorterDuff.Mode.SRC_IN);
+
+        }
     }
 }

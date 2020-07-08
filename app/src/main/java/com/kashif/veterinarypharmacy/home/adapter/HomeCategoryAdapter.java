@@ -44,7 +44,8 @@ public class HomeCategoryAdapter extends GenericAdapter<HomCategorymodel, HomeCa
 
         NavController navController =Navigation.findNavController(dataBinding.getRoot());
         Bundle args  = new Bundle();
-        navController.navigate(R.id.productListFragment);
+        args.putParcelable("category",model);
+        navController.navigate(R.id.productListFragment,args);
 
     }
 }

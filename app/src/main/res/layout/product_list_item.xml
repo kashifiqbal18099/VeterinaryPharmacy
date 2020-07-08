@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="viewmodel"
+            type="com.kashif.veterinarypharmacy.home.model.ProductModel" />
+    </data>
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_10sdp"
+        android:background="@color/white"
+        >
+
+
+
+        <ImageView
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_50sdp"
+            android:id="@+id/image"
+            imageurl="@{viewmodel.image}"
+            />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/product_name"
+            android:layout_toLeftOf="@+id/fav_btn"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:textColor="@color/black"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:layout_alignTop="@+id/image"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:textSize="@dimen/_10sdp"
+            android:textStyle="normal"
+            android:text="@{viewmodel.name}"
+            android:layout_toRightOf="@+id/image"
+            />
+
+        <com.kashif.veterinarypharmacy.customviews.TextViewSeogoeuiRegularStrike
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/promo_price"
+
+            android:textColor="@color/dark_grey"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_below="@+id/product_name"
+            android:layout_toRightOf="@+id/image"
+            android:textSize="@dimen/_10sdp"
+            android:text="@{viewmodel.promo_price + ` PKR`}"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/precent_off"
+            android:textColor="@color/black"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_below="@+id/product_name"
+            android:layout_toRightOf="@+id/promo_price"
+            android:textSize="@dimen/_10sdp"
+            android:text="@{viewmodel.original_price + ` PKR`}"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/orginal_price"
+            android:textColor="@color/text_pink"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_below="@+id/promo_price"
+
+            android:layout_toRightOf="@+id/image"
+            android:textSize="@dimen/_10sdp"
+            android:text="@{viewmodel.precent_off + `% OFF`}"
+            />
+
+
+        <ImageView
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            app:srcCompat="@drawable/ic_heart"
+            android:id="@+id/fav_btn"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/_10sdp"
+            customtint="@{viewmodel.is_fav}"
+            />
+
+
+
+        <Button
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:text="@string/add"
+            android:id="@+id/add_to_cart"
+            android:layout_below="@+id/orginal_price"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:background="@drawable/rounded_stroke_btn"
+            />
+
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_1sdp"
+            android:background="@color/light_grey"
+            android:layout_below="@+id/add_to_cart"
+            android:layout_marginTop="@dimen/_5sdp"
+            />
+
+    </RelativeLayout>
+</layout>

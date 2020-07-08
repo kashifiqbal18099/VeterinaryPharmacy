@@ -7,7 +7,9 @@ import androidx.annotation.Nullable;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 
 import com.denzcoskun.imageslider.constants.ScaleTypes;
 import com.denzcoskun.imageslider.models.SlideModel;
@@ -32,9 +34,11 @@ public class HomeFragment extends BaseFramnet<FragmentHomeBinding> {
     HomeTopRatedAdapter homeTopRatedAdapter;
     HomeCategoryAdapter homeCategoryAdapter;
 
+
+
+
     @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
+    public void OnCreateView() {
         homeViewModel = ViewModelProviders.of(this).get(HomeViewModel.class);
         homeViewModel.Init();
         LoadDummyImages();
@@ -42,12 +46,15 @@ public class HomeFragment extends BaseFramnet<FragmentHomeBinding> {
         GetHomeTopRatedProducts();
     }
 
+
+
     public void LoadDummyImages()
     {
 
         homeViewModel.getSliderImages().observe(getActivity(), new Observer<List<SlideModel>>() {
             @Override
             public void onChanged(List<SlideModel> slideModels) {
+
 
                 GetDataBinding().imageSlider.setImageList(slideModels,ScaleTypes.CENTER_CROP);
             }
@@ -63,6 +70,7 @@ public class HomeFragment extends BaseFramnet<FragmentHomeBinding> {
         homeViewModel.getHomeCategries().observe(getActivity(), new Observer<List<HomCategorymodel>>() {
             @Override
             public void onChanged(List<HomCategorymodel> homeCategoryModels) {
+                homeCategoryModelList.clear();
                 homeCategoryModelList.addAll(homeCategoryModels);
                 homeCategoryAdapter.notifyDataSetChanged();
             }
@@ -77,6 +85,7 @@ public class HomeFragment extends BaseFramnet<FragmentHomeBinding> {
         homeViewModel.getHomeTopRatedProducts().observe(getActivity(), new Observer<List<HomeTopRatedProduct>>() {
             @Override
             public void onChanged(List<HomeTopRatedProduct> homeTopRatedProducts) {
+                homeTopRatedProductList.clear();
                 homeTopRatedProductList.addAll(homeTopRatedProducts);
                 homeTopRatedAdapter.notifyDataSetChanged();
             }

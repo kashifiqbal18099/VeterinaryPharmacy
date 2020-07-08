@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModel;
 import com.denzcoskun.imageslider.models.SlideModel;
 import com.kashif.veterinarypharmacy.home.model.HomCategorymodel;
 import com.kashif.veterinarypharmacy.home.model.HomeTopRatedProduct;
+import com.kashif.veterinarypharmacy.home.model.ProductModel;
 import com.kashif.veterinarypharmacy.home.repository.HomeRepository;
 
 import java.util.List;
@@ -40,5 +41,9 @@ public class HomeViewModel extends ViewModel {
     public LiveData<List<HomeTopRatedProduct>> getHomeTopRatedProducts()
     {
         return homeRepository.getHomeTopRatedProducts();
+    }
+    public LiveData<List<ProductModel>> getProducts()
+    {
+        return homeRepository.getProudcts();
     }
 }

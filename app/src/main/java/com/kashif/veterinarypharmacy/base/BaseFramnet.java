@@ -31,9 +31,11 @@ public abstract class BaseFramnet<DB extends ViewDataBinding> extends Fragment {
         dataBinding  = DataBindingUtil.inflate(inflater,getlayout(),container,false);
         customProgressDialog = new CustomProgressDialog(getActivity());
         mContext  = getActivity();
+        OnCreateView();
         return dataBinding.getRoot();
     }
 
+    public abstract void OnCreateView();
     public abstract int getlayout();
 
     public DB GetDataBinding()
