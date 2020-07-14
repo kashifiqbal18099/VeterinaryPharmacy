@@ -2,6 +2,7 @@ package com.kashif.veterinarypharmacy.home.model;
 
 import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
+import androidx.databinding.library.baseAdapters.BR;
 
 public class ProductModel extends BaseObservable {
     String image;
@@ -83,9 +84,11 @@ public class ProductModel extends BaseObservable {
     @Bindable
     public boolean isIs_fav() {
         return is_fav;
+
     }
 
     public void setIs_fav(boolean is_fav) {
         this.is_fav = is_fav;
+        notifyPropertyChanged(BR.is_fav);
     }
 }

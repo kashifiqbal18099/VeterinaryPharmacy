@@ -1,7 +1,9 @@
 package com.kashif.veterinarypharmacy.home.adapter;
 
 import android.content.Context;
+import android.graphics.drawable.TransitionDrawable;
 import android.view.View;
+import android.widget.ImageView;
 
 import com.kashif.veterinarypharmacy.R;
 import com.kashif.veterinarypharmacy.base.GenericAdapter;
@@ -33,14 +35,24 @@ public class ProductListAdapter extends GenericAdapter<ProductModel, ProductList
             @Override
             public void onClick(View v) {
 
-                model.setIs_fav(true);
+                if(model.isIs_fav())
+                {
+                    model.setIs_fav(false);
+
+                }
+                else
+                {
+                    model.setIs_fav(true);
+
+                }
+
             }
         });
 
         dataBinding.addToCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                productListInterface.OnAddToCart(model.getName(),dataBinding.getRoot());
+                productListInterface.OnAddToCart(model.getName(),dataBinding.imageCopy);
             }
         });
     }
@@ -52,6 +64,6 @@ public class ProductListAdapter extends GenericAdapter<ProductModel, ProductList
 
     public interface  ProductListInterface
     {
-        void OnAddToCart(String product_id,View view);
+        void OnAddToCart(String product_id, ImageView view);
     }
 }

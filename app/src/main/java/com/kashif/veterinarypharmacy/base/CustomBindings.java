@@ -1,6 +1,7 @@
 package com.kashif.veterinarypharmacy.base;
 
 import android.graphics.drawable.Drawable;
+import android.graphics.drawable.TransitionDrawable;
 import android.widget.ImageView;
 
 import androidx.annotation.Nullable;
@@ -40,14 +41,17 @@ public class CustomBindings {
     public static void CustomTint(ImageView imageView , boolean isFav)
     {
 
+
         if(isFav)
         {
-            imageView.setColorFilter(ContextCompat.getColor(imageView.getContext(), R.color.text_pink), android.graphics.PorterDuff.Mode.SRC_IN);
+
+          imageView.setColorFilter(ContextCompat.getColor(imageView.getContext(), R.color.text_pink), android.graphics.PorterDuff.Mode.SRC_IN);
+
+
         }
         else
         {
-            imageView.setColorFilter(ContextCompat.getColor(imageView.getContext(), R.color.dark_grey), android.graphics.PorterDuff.Mode.SRC_IN);
-
+           imageView.setColorFilter(ContextCompat.getColor(imageView.getContext(), R.color.dark_grey), android.graphics.PorterDuff.Mode.SRC_IN);
         }
     }
 }

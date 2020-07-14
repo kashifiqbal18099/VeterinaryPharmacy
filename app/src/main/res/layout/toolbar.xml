@@ -77,15 +77,7 @@
             android:layout_marginLeft="@dimen/_10sdp"
             app:srcCompat="@drawable/ic_cart" />
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/dummy"
-            android:scaleType="fitXY"
-            android:visibility="gone"
-            android:layout_below="@+id/cart_icon"
-            android:layout_centerHorizontal="true"
-            />
+
 
         <TextView
             android:id="@+id/badge_notification_1"

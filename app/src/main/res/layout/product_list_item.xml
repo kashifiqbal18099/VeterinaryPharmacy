@@ -10,6 +10,7 @@
         xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="@dimen/_10sdp"
+        android:id="@+id/root_rel"
         android:background="@color/white"
         >
 
@@ -19,6 +20,13 @@
             android:layout_width="@dimen/_50sdp"
             android:layout_height="@dimen/_50sdp"
             android:id="@+id/image"
+            imageurl="@{viewmodel.image}"
+            />
+
+        <ImageView
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_50sdp"
+            android:id="@+id/image_copy"
             imageurl="@{viewmodel.image}"
             />
 
@@ -87,6 +95,7 @@
             app:srcCompat="@drawable/ic_heart"
             android:id="@+id/fav_btn"
             android:layout_marginTop="@dimen/_3sdp"
+            android:background="@drawable/fav_transition"
             android:layout_alignParentRight="true"
             android:layout_marginRight="@dimen/_10sdp"
             customtint="@{viewmodel.is_fav}"

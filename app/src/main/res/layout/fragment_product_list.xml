@@ -50,6 +50,15 @@
             android:orientation="vertical"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
             />
+
+
+        <ImageView
+            android:id="@+id/dummy_image"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            app:srcCompat="@drawable/ic_cart"
+            android:layout_alignParentRight="true"
+            android:visibility="gone" />
     </RelativeLayout>
 
 </layout>

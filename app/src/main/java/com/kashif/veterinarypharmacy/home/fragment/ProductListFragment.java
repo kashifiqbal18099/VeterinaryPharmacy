@@ -1,5 +1,6 @@
 package com.kashif.veterinarypharmacy.home.fragment;
 
+import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.graphics.Bitmap;
@@ -18,6 +19,7 @@ import android.util.TypedValue;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import com.kashif.veterinarypharmacy.R;
 import com.kashif.veterinarypharmacy.base.BaseFramnet;
@@ -27,6 +29,7 @@ import com.kashif.veterinarypharmacy.home.adapter.ProductListAdapter;
 import com.kashif.veterinarypharmacy.home.model.HomCategorymodel;
 import com.kashif.veterinarypharmacy.home.model.ProductModel;
 import com.kashif.veterinarypharmacy.home.viemodel.HomeViewModel;
+import com.kashif.veterinarypharmacy.util.CircleAnimationUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,8 +41,9 @@ public class ProductListFragment extends BaseFramnet<FragmentProductListBinding>
     HomeViewModel homeViewModel;
     ProductListAdapter productListAdapter;
     List<ProductModel> productModelArrayList = new ArrayList<>();
-    ImageView mDummyImgView;
+    ImageView dummy_image;
     int actionbarheight;
+    int cartcount = 0;
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -57,6 +61,7 @@ public class ProductListFragment extends BaseFramnet<FragmentProductListBinding>
         ((HomeActivity) getActivity()).dataBinding.top.title.setText(homCategorymodel.getName());
         ((HomeActivity) getActivity()).dataBinding.top.backLinear.setVisibility(View.VISIBLE);
         ((HomeActivity) getActivity()).dataBinding.top.toolbar.setNavigationIcon(null);
+        dummy_image  = GetDataBinding().dummyImage;
         GetProducts();
     }
 
@@ -90,38 +95,48 @@ public class ProductListFragment extends BaseFramnet<FragmentProductListBinding>
     }
 
     @Override
-    public void OnAddToCart(String product_id,View view) {
+    public void OnAddToCart(String product_id,ImageView view) {
 
         Bitmap b = loadBitmapFromView(view, view.getWidth(), view.getHeight());
-        animateView(view,b);
+        makeFlyAnimation(view);
 
     }
 
 
-    private void animateView(View foodCardView, Bitmap b) {
-        TypedValue tv = new TypedValue();
-        if (getContext().getTheme().resolveAttribute(android.R.attr.actionBarSize, tv, true)) {
-            actionbarheight = TypedValue.complexToDimensionPixelSize(tv.data, getResources().getDisplayMetrics());
-        }
+
+    private void makeFlyAnimation(ImageView targetView) {
+
+        ImageView destView = ((HomeActivity) getActivity()).dataBinding.top.cartIcon;
+
+        new CircleAnimationUtil().attachActivity(getActivity()).setTargetView(targetView).setMoveDuration(800).setDestView(destView).setAnimationListener(new Animator.AnimatorListener() {
+            @Override
+            public void onAnimationStart(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animator animation) {
+
+                cartcount++;
+                if( ((HomeActivity) getActivity()).dataBinding.top.badgeNotification1.getVisibility()==View.GONE)
+                    ((HomeActivity) getActivity()).dataBinding.top.badgeNotification1.setVisibility(View.VISIBLE);
 
 
+                ((HomeActivity) getActivity()).dataBinding.top.badgeNotification1.setText(String.valueOf(cartcount));
+            }
 
-        mDummyImgView   = ((HomeActivity) getActivity()).dataBinding.top.dummy;
+            @Override
+            public void onAnimationCancel(Animator animation) {
 
-        mDummyImgView.setImageBitmap(b);
-        mDummyImgView.setVisibility(View.VISIBLE);
-        int u[] = new int[2];
-        ((HomeActivity) getActivity()).dataBinding.top.cartIcon.getLocationInWindow(u);
-        mDummyImgView.setLeft(foodCardView.getLeft());
-        mDummyImgView.setTop(foodCardView.getTop());
-        AnimatorSet animSetXY = new AnimatorSet();
-        ObjectAnimator y = ObjectAnimator.ofFloat(mDummyImgView, "translationY", mDummyImgView.getTop(), u[1] - (2 * actionbarheight));
-        ObjectAnimator x = ObjectAnimator.ofFloat(mDummyImgView, "translationX", mDummyImgView.getLeft(), u[0] - (2 * actionbarheight));
-        ObjectAnimator sy = ObjectAnimator.ofFloat(mDummyImgView, "scaleY", 0.8f, 0.1f);
-        ObjectAnimator sx = ObjectAnimator.ofFloat(mDummyImgView, "scaleX", 0.8f, 0.1f);
-        animSetXY.playTogether(x, y, sx, sy);
-        animSetXY.setDuration(650);
-        animSetXY.start();
+            }
+
+            @Override
+            public void onAnimationRepeat(Animator animation) {
+
+            }
+        }).startAnimation();
+
+
     }
 
     public Bitmap loadBitmapFromView(View view, int width, int height) {
