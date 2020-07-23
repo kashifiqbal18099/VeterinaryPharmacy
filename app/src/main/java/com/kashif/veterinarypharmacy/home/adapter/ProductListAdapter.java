@@ -1,6 +1,7 @@
 package com.kashif.veterinarypharmacy.home.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.TransitionDrawable;
 import android.view.View;
 import android.widget.ImageView;
@@ -8,6 +9,7 @@ import android.widget.ImageView;
 import com.kashif.veterinarypharmacy.R;
 import com.kashif.veterinarypharmacy.base.GenericAdapter;
 import com.kashif.veterinarypharmacy.databinding.ProductListItemBinding;
+import com.kashif.veterinarypharmacy.home.activity.ProductDetailsActivity;
 import com.kashif.veterinarypharmacy.home.model.ProductModel;
 
 import java.util.List;
@@ -15,9 +17,11 @@ import java.util.List;
 public class ProductListAdapter extends GenericAdapter<ProductModel, ProductListItemBinding> {
 
     ProductListInterface productListInterface;
+    Context context;
 
     public ProductListAdapter(Context context, List<ProductModel> arrayList,ProductListInterface productListInterface) {
         super(context, arrayList);
+        this.context  = context;
         this.productListInterface   = productListInterface;
     }
 
@@ -49,21 +53,25 @@ public class ProductListAdapter extends GenericAdapter<ProductModel, ProductList
             }
         });
 
+
+
         dataBinding.addToCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                productListInterface.OnAddToCart(model.getName(),dataBinding.imageCopy);
+                productListInterface.OnAddToCart(model,dataBinding.imageCopy);
             }
         });
     }
 
     @Override
     public void onItemClick(ProductModel model, int position, ProductListItemBinding dataBinding) {
-
+        Intent intent  = new Intent(context, ProductDetailsActivity.class);
+        intent.putExtra("product",model);
+        context.startActivity(intent);
     }
 
     public interface  ProductListInterface
     {
-        void OnAddToCart(String product_id, ImageView view);
+        void OnAddToCart(ProductModel productModel, ImageView view);
     }
 }

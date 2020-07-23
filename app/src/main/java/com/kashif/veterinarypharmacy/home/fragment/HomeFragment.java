@@ -56,7 +56,8 @@ public class HomeFragment extends BaseFramnet<FragmentHomeBinding> {
             public void onChanged(List<SlideModel> slideModels) {
 
 
-                GetDataBinding().imageSlider.setImageList(slideModels,ScaleTypes.CENTER_CROP);
+
+                GetDataBinding().imageSlider.setImageList(slideModels, ScaleTypes.CENTER_CROP);
             }
         });
     }

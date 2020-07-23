@@ -2,6 +2,7 @@ package com.kashif.veterinarypharmacy.home.activity;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -10,16 +11,22 @@ import android.widget.TextView;
 import com.google.android.material.navigation.NavigationView;
 import com.kashif.veterinarypharmacy.base.BaseActivity;
 import com.kashif.veterinarypharmacy.R;
+import com.kashif.veterinarypharmacy.cart.activity.CartActivity;
 import com.kashif.veterinarypharmacy.databinding.ActivityHomeBinding;
+import com.kashif.veterinarypharmacy.util.ClickHandlers;
 
-public class HomeActivity extends BaseActivity<ActivityHomeBinding> {
+public class HomeActivity extends BaseActivity<ActivityHomeBinding> implements ClickHandlers {
     private View navHeader;
+    public static  HomeActivity instance;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setUpNavigationView();
         setNavHeader();
+        instance = this;
+        dataBinding.top.setClickhandlers(this);
 
     }
 
@@ -87,4 +94,26 @@ public class HomeActivity extends BaseActivity<ActivityHomeBinding> {
         //calling sync state is necessary or else your hamburger icon wont show up
         actionBarDrawerToggle.syncState();
     }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId())
+        {
+            case R.id.cart_icon:
+                startActivity(new Intent(HomeActivity.this, CartActivity.class));
+                break;
+        }
+    }
+
+    public static HomeActivity getInstance()
+    {
+        return instance;
+    }
+
 }

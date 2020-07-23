@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="viewmodel"
+            type="com.kashif.veterinarypharmacy.cart.db.CartModel" />
+    </data>
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_10sdp"
+        android:id="@+id/root_rel"
+        >
+
+        <ImageView
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_50sdp"
+            android:id="@+id/image"
+            imageurl="@{viewmodel.image}"
+            />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/image"
+            android:id="@+id/product_details_linear"
+            android:layout_alignTop="@+id/image"
+            android:orientation="vertical"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/product_name"
+                android:layout_toLeftOf="@+id/fav_btn"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:textColor="@color/black"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:layout_alignTop="@+id/image"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:textSize="@dimen/big_text_size"
+                android:textStyle="normal"
+                android:text="@{viewmodel.product_name}"
+                android:layout_toRightOf="@+id/image"
+                />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/product_details"
+                android:layout_toLeftOf="@+id/fav_btn"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:textColor="@color/black"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:layout_alignTop="@+id/image"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:textSize="@dimen/normal_text_size"
+                android:textStyle="normal"
+                android:text="this is product"
+                android:layout_toRightOf="@+id/image"
+                />
+        </LinearLayout>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/product_pice"
+            android:textSize="@dimen/meduim_text_size"
+            android:textColor="@color/black"
+            android:layout_toRightOf="@id/image"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:textStyle="bold"
+            android:layout_below="@+id/product_details_linear"
+            android:layout_alignLeft="@+id/product_details_linear"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:text="@{String.valueOf(viewmodel.product_price )+ ` PKR`}"
+            />
+
+
+
+        <View
+            android:layout_width="@dimen/_1sdp"
+            android:layout_height="@dimen/_10sdp"
+            android:id="@+id/sep_one"
+            android:background="@color/dark_grey"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:layout_alignBottom="@+id/product_pice"
+            android:layout_toRightOf="@+id/product_pice"
+            android:layout_alignTop="@+id/product_pice"
+            android:layout_below="@+id/product_details_linear"
+            />
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@+id/product_details_linear"
+            android:layout_toRightOf="@+id/sep_one"
+            android:layout_gravity="center"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-"
+                android:id="@+id/remove_qty"
+                android:padding="@dimen/_5sdp"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:textColor="@color/black"
+                android:textSize="@dimen/extra_big_text_size"
+                />
+
+            <TextView
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:background="@drawable/qty_layout"
+                android:gravity="center"
+                android:text="@{String.valueOf(viewmodel.qty)}" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+"
+                android:id="@+id/add_qty"
+                android:padding="@dimen/_5sdp"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:textColor="@color/black"
+                android:textSize="@dimen/extra_big_text_size"
+                />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:id="@+id/discount_linear"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:gravity="center"
+            android:layout_alignLeft="@+id/product_details_linear"
+            android:layout_below="@+id/sep_one"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Discount"
+
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/discount"
+                android:textSize="@dimen/normal_text_size"
+                android:textColor="@color/black"
+                android:layout_toRightOf="@id/image"
+                android:textStyle="bold"
+                android:layout_below="@+id/product_details_linear"
+                android:layout_alignLeft="@+id/product_details_linear"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:text="@{String.valueOf(viewmodel.discount) + ` PKR`}"
+                />
+        </LinearLayout>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:background="@color/dark_grey"
+            android:layout_below="@+id/discount_linear"
+            android:layout_marginTop="@dimen/_10sdp"
+            />
+
+        <Button
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:text="@string/remove"
+            android:id="@+id/remove_product"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:textColor="@color/white"
+            android:textSize="@dimen/normal_text_size"
+            android:background="@drawable/rounded_login_btn"
+            />
+
+    </RelativeLayout>
+</layout>

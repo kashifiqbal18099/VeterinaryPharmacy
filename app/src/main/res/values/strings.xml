@@ -19,4 +19,18 @@
     <string name="shop_by_category">Shop by Category</string>
     <string name="top_rated">Top Rated</string>
     <string name="add">Add</string>
+    <string name="select_qty">Select QTY</string>
+    <string name="check_delivery">Check Delivery</string>
+    <string name="check">Check</string>
+    <string name="product_details">Product Details</string>
+    <string name="product_review">Product Review</string>
+    <string name="payment_summary">Payment Summary</string>
+    <string name="order_total">Order Total</string>
+    <string name="shipping">Shipping</string>
+    <string name="discount">Discount</string>
+    <string name="total_amount">Total Amount</string>
+    <string name="apply">Apply</string>
+    <string name="app_promocode">App Promocode</string>
+    <string name="remove">Remove</string>
+    <string name="your_cart">Your Cart</string>
 </resources>

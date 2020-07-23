@@ -93,12 +93,12 @@ public class HomeRepository {
     {
         productModelArrayList.clear();
 
-        productModelArrayList.add(new ProductModel("https://sc01.alicdn.com/kf/HTB1qR5oelTH8KJjy0Fiq6ARsXXa6.jpg_350x350.jpg","Dicloject injection","mg" , "100","70","20",false));
+      /*  productModelArrayList.add(new ProductModel("https://sc01.alicdn.com/kf/HTB1qR5oelTH8KJjy0Fiq6ARsXXa6.jpg_350x350.jpg","Dicloject injection","mg" , "100","70","20",false));
         productModelArrayList.add(new ProductModel("https://sc01.alicdn.com/kf/H4dd9a8efcbc34173b1cc6242c2b849600.jpg_350x350.jpg","TY-DEXT 10","mg" , "100","70","20",true));
         productModelArrayList.add(new ProductModel("https://image.made-in-china.com/202f0j00ZdNTABOncCzp/Good-Factory-Veterinary-Injection-Factory-Supply-Best-Ivermectin-Price-Malaysia-Veterinary-Medicine-for-Big-Animals-Treatment.jpg","HBXS","mg" , "100","70","20",true));
         productModelArrayList.add(new ProductModel("https://w7.pngwing.com/pngs/796/385/png-transparent-dog-cat-veterinarian-veterinary-medicine-live-dog-animals-sheep-laboratory.png","Hematex","mg" , "100","70","20",true));
         productModelArrayList.add(new ProductModel("https://sc01.alicdn.com/kf/HTB1qR5oelTH8KJjy0Fiq6ARsXXa6.jpg_350x350.jpg","Dicloject injection","mg" , "100","70","20",false));
-        productModelArrayList.add(new ProductModel("https://sc01.alicdn.com/kf/H4dd9a8efcbc34173b1cc6242c2b849600.jpg_350x350.jpg","TY-DEXT 10","mg" , "100","70","20",true));
+        productModelArrayList.add(new ProductModel("https://sc01.alicdn.com/kf/H4dd9a8efcbc34173b1cc6242c2b849600.jpg_350x350.jpg","TY-DEXT 10","mg" , "100","70","20",true));*/
 
     }
 

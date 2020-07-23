@@ -25,4 +25,9 @@ public abstract class  BaseActivity<DB extends ViewDataBinding> extends AppCompa
     @LayoutRes
     public abstract int getLayoutRes();
 
+
+    public DB GetDataBinding()
+    {
+        return dataBinding;
+    }
 }
