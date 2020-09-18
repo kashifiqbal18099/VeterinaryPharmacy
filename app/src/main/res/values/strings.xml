@@ -33,4 +33,6 @@
     <string name="app_promocode">App Promocode</string>
     <string name="remove">Remove</string>
     <string name="your_cart">Your Cart</string>
+    <string name="signin">Signin</string>
+    <string name="done">Done</string>
 </resources>

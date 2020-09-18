@@ -20,15 +20,12 @@
             android:background="@color/white"
             >
 
-            <com.denzcoskun.imageslider.ImageSlider
+            <androidx.viewpager.widget.ViewPager
                 android:id="@+id/image_slider"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:layout_marginLeft="@dimen/_10sdp"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_150sdp"
-                app:iss_auto_cycle="true"
-                app:iss_period="1000"
-                app:iss_delay="0"/>
+                android:layout_height="@dimen/_150sdp" />
 
             <RelativeLayout
                 android:layout_width="match_parent"

@@ -20,7 +20,7 @@
             android:layout_width="@dimen/_50sdp"
             android:layout_height="@dimen/_50sdp"
             android:id="@+id/image"
-            imageurl="@{viewmodel.image}"
+            imageurl="@{viewmodel.thumbail}"
             />
 
         <ImageView

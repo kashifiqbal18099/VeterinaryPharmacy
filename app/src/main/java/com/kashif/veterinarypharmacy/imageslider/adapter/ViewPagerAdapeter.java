@@ -19,6 +19,7 @@ public class ViewPagerAdapeter extends PagerAdapter {
     List<String> imgesList;
     Context context;
     private LayoutInflater inflater;
+    private boolean doNotifyDataSetChangedOnce = false;
 
     public ViewPagerAdapeter(List<String> imgesList, Context context) {
         this.imgesList = imgesList;
@@ -28,12 +29,17 @@ public class ViewPagerAdapeter extends PagerAdapter {
 
     @Override
     public int getCount() {
+        if (doNotifyDataSetChangedOnce) {
+            doNotifyDataSetChangedOnce = false;
+            notifyDataSetChanged();
+        }
         return imgesList.size();
     }
 
     @NonNull
     @Override
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
+        doNotifyDataSetChangedOnce = true;
         View imageLayout = inflater.inflate(R.layout.slidingimages_layout, container, false);
 
         assert imageLayout != null;

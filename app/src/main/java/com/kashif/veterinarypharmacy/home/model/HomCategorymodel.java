@@ -7,45 +7,45 @@ import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
 
 public class HomCategorymodel extends BaseObservable implements Parcelable {
-    String id;
-    String name;
-    String image;
+    String ID;
+    String category_title;
+    String category_image;
 
 
     public HomCategorymodel() {
     }
 
     public HomCategorymodel(String id, String name, String image) {
-        this.id = id;
-        this.name = name;
-        this.image = image;
+        this.ID = id;
+        this.category_title = name;
+        this.category_image = image;
     }
 
     @Bindable
     public String getId() {
-        return id;
+        return ID;
     }
 
     public void setId(String id) {
-        this.id = id;
+        this.ID = id;
     }
 
     @Bindable
-    public String getName() {
-        return name;
+    public String getCategory_title() {
+        return category_title;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setCategory_title(String category_title) {
+        this.category_title = category_title;
     }
 
     @Bindable
-    public String getImage() {
-        return image;
+    public String getCategory_image() {
+        return category_image.matches("'^http://'") ? category_image.replace("http://","https://") : category_image;
     }
 
-    public void setImage(String image) {
-        this.image = image;
+    public void setCategory_image(String category_image) {
+        this.category_image = category_image;
     }
 
 
@@ -56,15 +56,15 @@ public class HomCategorymodel extends BaseObservable implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(this.id);
-        dest.writeString(this.name);
-        dest.writeString(this.image);
+        dest.writeString(this.ID);
+        dest.writeString(this.category_title);
+        dest.writeString(this.category_image);
     }
 
     protected HomCategorymodel(Parcel in) {
-        this.id = in.readString();
-        this.name = in.readString();
-        this.image = in.readString();
+        this.ID = in.readString();
+        this.category_title = in.readString();
+        this.category_image = in.readString();
     }
 
     public static final Parcelable.Creator<HomCategorymodel> CREATOR = new Parcelable.Creator<HomCategorymodel>() {

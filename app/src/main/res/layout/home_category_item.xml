@@ -19,7 +19,7 @@
             android:layout_width="@dimen/_30sdp"
             android:layout_height="@dimen/_30sdp"
             android:id="@+id/image"
-            imageurl="@{viewmodel.image}"
+            imageurl="@{viewmodel.category_image}"
             android:layout_centerHorizontal="true"
 
             />
@@ -29,7 +29,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/name"
             android:textStyle="normal"
-            android:text="@{viewmodel.name}"
+            android:text="@{viewmodel.category_title}"
             android:layout_centerHorizontal="true"
             android:layout_below="@+id/image"
             />

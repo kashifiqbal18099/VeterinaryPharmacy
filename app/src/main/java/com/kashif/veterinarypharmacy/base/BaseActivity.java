@@ -20,6 +20,7 @@ public abstract class  BaseActivity<DB extends ViewDataBinding> extends AppCompa
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        mContext = this;
         dataBinding = DataBindingUtil.setContentView(this,getLayoutRes());
     }
     @LayoutRes

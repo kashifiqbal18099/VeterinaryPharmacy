@@ -1,9 +1,6 @@
 package com.kashif.veterinarypharmacy.home.fragment;
 
 import android.animation.Animator;
-import android.animation.AnimatorSet;
-import android.animation.ObjectAnimator;
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -15,18 +12,13 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 
-import android.util.TypedValue;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import android.widget.Toast;
 
 import com.kashif.veterinarypharmacy.R;
 import com.kashif.veterinarypharmacy.base.BaseFramnet;
-import com.kashif.veterinarypharmacy.cart.activity.CartActivity;
 import com.kashif.veterinarypharmacy.cart.db.CartModel;
 import com.kashif.veterinarypharmacy.cart.viewmodel.CartViewModel;
 import com.kashif.veterinarypharmacy.databinding.FragmentProductListBinding;
@@ -34,10 +26,8 @@ import com.kashif.veterinarypharmacy.home.activity.HomeActivity;
 import com.kashif.veterinarypharmacy.home.adapter.ProductListAdapter;
 import com.kashif.veterinarypharmacy.home.model.HomCategorymodel;
 import com.kashif.veterinarypharmacy.home.model.ProductModel;
-import com.kashif.veterinarypharmacy.home.viemodel.HomeViewModel;
 import com.kashif.veterinarypharmacy.home.viemodel.ProductViewModel;
 import com.kashif.veterinarypharmacy.util.CircleAnimationUtil;
-import com.kashif.veterinarypharmacy.util.ClickHandlers;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -68,7 +58,7 @@ public class ProductListFragment extends BaseFramnet<FragmentProductListBinding>
         cartViewModel = ViewModelProviders.of(this).get(CartViewModel.class);
         productViewModel = ViewModelProviders.of(this).get(ProductViewModel.class);
         productViewModel.Init();
-        ((HomeActivity) getActivity()).dataBinding.top.title.setText(homCategorymodel.getName());
+        ((HomeActivity) getActivity()).dataBinding.top.title.setText(homCategorymodel.getCategory_title());
         ((HomeActivity) getActivity()).dataBinding.top.backLinear.setVisibility(View.VISIBLE);
         ((HomeActivity) getActivity()).dataBinding.top.toolbar.setNavigationIcon(null);
         dummy_image  = GetDataBinding().dummyImage;

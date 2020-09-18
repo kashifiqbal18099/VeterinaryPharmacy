@@ -4,6 +4,9 @@
 
     <data>
 
+        <variable
+            name="clickhandlers"
+            type="com.kashif.veterinarypharmacy.util.ClickHandlers" />
     </data>
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -161,6 +164,7 @@
                     android:layout_below="@+id/terms_and_condition_chk"
                     android:layout_centerHorizontal="true"
                     android:layout_marginLeft="@dimen/_20sdp"
+                    android:onClick="@{clickhandlers::onClick}"
                     android:layout_marginTop="@dimen/_20sdp"
                     android:layout_marginRight="@dimen/_20sdp"
                     android:background="@drawable/rounded_login_btn"
@@ -187,6 +191,8 @@
                         android:id="@+id/login"
                         android:layout_marginLeft="@dimen/_10sdp"
                         android:text="@string/login"
+                        android:onClick="@{clickhandlers::onClick}"
+
                         android:textColor="@color/black" />
 
                 </LinearLayout>

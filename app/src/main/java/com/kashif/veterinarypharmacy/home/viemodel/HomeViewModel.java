@@ -9,11 +9,12 @@ import com.kashif.veterinarypharmacy.home.model.HomCategorymodel;
 import com.kashif.veterinarypharmacy.home.model.HomeTopRatedProduct;
 import com.kashif.veterinarypharmacy.home.model.ProductModel;
 import com.kashif.veterinarypharmacy.home.repository.HomeRepository;
+import com.kashif.veterinarypharmacy.network.NetworkState;
 
 import java.util.List;
 
 public class HomeViewModel extends ViewModel {
-    private MutableLiveData<List<SlideModel>> sliderimages;
+    private MutableLiveData<List<String>> sliderimages;
     HomeRepository homeRepository;
 
     public void Init()
@@ -27,7 +28,7 @@ public class HomeViewModel extends ViewModel {
 
     }
 
-    public LiveData<List<SlideModel>> getSliderImages(){
+    public LiveData<List<String>> getSliderImages(){
         sliderimages  = homeRepository.getSliders();
         return sliderimages;
     }
@@ -45,5 +46,10 @@ public class HomeViewModel extends ViewModel {
     public LiveData<List<ProductModel>> getProducts()
     {
         return homeRepository.getProudcts();
+    }
+
+    public LiveData<NetworkState> getnetworkstate()
+    {
+        return homeRepository.getNetworkState();
     }
 }
