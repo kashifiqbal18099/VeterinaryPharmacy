@@ -4,7 +4,7 @@
 
         <variable
             name="viewmodel"
-            type="com.kashif.veterinarypharmacy.home.model.HomCategorymodel" />
+            type="com.kashif.veterinarypharmacy.home.model.HomeCategorymodel" />
     </data>
     <RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="wrap_content"

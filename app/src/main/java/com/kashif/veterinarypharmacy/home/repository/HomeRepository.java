@@ -1,19 +1,22 @@
 package com.kashif.veterinarypharmacy.home.repository;
 
+import androidx.annotation.NonNull;
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
-import com.denzcoskun.imageslider.constants.ScaleTypes;
-import com.denzcoskun.imageslider.models.SlideModel;
 import com.google.gson.Gson;
 import com.kashif.veterinarypharmacy.base.AppConstant;
 import com.kashif.veterinarypharmacy.base.MyApp;
-import com.kashif.veterinarypharmacy.home.model.HomCategorymodel;
+import com.kashif.veterinarypharmacy.home.model.HomeCategoryResponse;
+import com.kashif.veterinarypharmacy.home.model.HomeCategorymodel;
 import com.kashif.veterinarypharmacy.home.model.HomeTopRatedProduct;
 import com.kashif.veterinarypharmacy.home.model.ProductModel;
 import com.kashif.veterinarypharmacy.network.MyRestClient;
+import com.kashif.veterinarypharmacy.network.NetworkBoundResource;
 import com.kashif.veterinarypharmacy.network.NetworkOperationListener;
 import com.kashif.veterinarypharmacy.network.NetworkState;
-import com.kashif.veterinarypharmacy.network.VolleySingleObject;
+import com.kashif.veterinarypharmacy.network.Resource;
+import com.kashif.veterinarypharmacy.network.RetrofitServices;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -22,19 +25,27 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+import retrofit2.Call;
+
 public class HomeRepository {
     public static HomeRepository instance;
     private ArrayList<String> sliderArrayList = new ArrayList<>();
-    private ArrayList<HomCategorymodel> homeCategoryModelArrayList = new ArrayList<>();
+    private ArrayList<HomeCategorymodel> homeCategoryModelArrayList = new ArrayList<>();
     private ArrayList<HomeTopRatedProduct> homeTopRatedProductArrayList = new ArrayList<>();
     private ArrayList<ProductModel> productModelArrayList = new ArrayList<>();
     private MutableLiveData<NetworkState> networkState = new MutableLiveData<>();
-    private MutableLiveData<List<HomCategorymodel>> homecategorymutablelivedata = new MutableLiveData<>();
+    private MutableLiveData<List<HomeCategorymodel>> homecategorymutablelivedata = new MutableLiveData<>();
     private MutableLiveData<List<String>> slidermutablelivedata = new MutableLiveData<>();
+    RetrofitServices retrofitServices;
 
-    public static HomeRepository getInstance() {
+    public HomeRepository(RetrofitServices retrofitServices) {
+        this.retrofitServices  =retrofitServices;
+    }
+
+    public static HomeRepository getInstance(RetrofitServices retrofitServices) {
+
         if (instance == null) {
-            instance = new HomeRepository();
+            instance = new HomeRepository(retrofitServices);
         }
 
         return instance;
@@ -50,9 +61,9 @@ public class HomeRepository {
     }
 
 
-    public MutableLiveData<List<HomCategorymodel>> getHomeCategories() {
+    public MutableLiveData<List<HomeCategorymodel>> getHomeCategories() {
 
-        GetSliderAndCategories();
+        //GetSliderAndCategories();
         return homecategorymutablelivedata;
     }
 
@@ -82,18 +93,18 @@ public class HomeRepository {
 
     public void SetCategories() {
         homeCategoryModelArrayList.clear();
-        homeCategoryModelArrayList.add(new HomCategorymodel("1", "Panadol", "https://firebasestorage.googleapis.com/v0/b/freshone-f45ef.appspot.com/o/icons8-health-book-48.png?alt=media&token=b3556f69-03a8-473f-aba6-9390067b23a5"));
-        homeCategoryModelArrayList.add(new HomCategorymodel("2", "Dispreen", "https://firebasestorage.googleapis.com/v0/b/freshone-f45ef.appspot.com/o/icons8-health-checkup-16.png?alt=media&token=03b876dc-d5be-4ad7-9feb-21cc042133c1"));
-        homeCategoryModelArrayList.add(new HomCategorymodel("3", "Medical", "https://firebasestorage.googleapis.com/v0/b/freshone-f45ef.appspot.com/o/icons8-mental-health-50.png?alt=media&token=8ddd3bb3-69bc-4f74-b51b-668a9b01f70e"));
-        homeCategoryModelArrayList.add(new HomCategorymodel("4", "Vat", "https://firebasestorage.googleapis.com/v0/b/freshone-f45ef.appspot.com/o/icons8-mother's-health-64.png?alt=media&token=b58f2271-6b63-4b7d-947f-a8c6e7164c32"));
+        homeCategoryModelArrayList.add(new HomeCategorymodel("1", "Panadol", "https://firebasestorage.googleapis.com/v0/b/freshone-f45ef.appspot.com/o/icons8-health-book-48.png?alt=media&token=b3556f69-03a8-473f-aba6-9390067b23a5"));
+        homeCategoryModelArrayList.add(new HomeCategorymodel("2", "Dispreen", "https://firebasestorage.googleapis.com/v0/b/freshone-f45ef.appspot.com/o/icons8-health-checkup-16.png?alt=media&token=03b876dc-d5be-4ad7-9feb-21cc042133c1"));
+        homeCategoryModelArrayList.add(new HomeCategorymodel("3", "Medical", "https://firebasestorage.googleapis.com/v0/b/freshone-f45ef.appspot.com/o/icons8-mental-health-50.png?alt=media&token=8ddd3bb3-69bc-4f74-b51b-668a9b01f70e"));
+        homeCategoryModelArrayList.add(new HomeCategorymodel("4", "Vat", "https://firebasestorage.googleapis.com/v0/b/freshone-f45ef.appspot.com/o/icons8-mother's-health-64.png?alt=media&token=b58f2271-6b63-4b7d-947f-a8c6e7164c32"));
     }
 
 
 
 
-    public void GetSliderAndCategories() {
+/*    public void GetSliderAndCategories() {
 
-        final List<HomCategorymodel> homCategorymodelList = new ArrayList<>();
+        final List<HomeCategorymodel> homCategorymodelList = new ArrayList<>();
         homCategorymodelList.clear();
         homeCategoryModelArrayList.clear();
         sliderArrayList.clear();
@@ -109,7 +120,7 @@ public class HomeRepository {
                 JSONArray categories = response.getJSONArray("categories");
                 JSONArray slider = response.getJSONArray("sliders");
                 for (int i = 0; i < categories.length(); i++) {
-                    HomCategorymodel homCategorymodel = gson.fromJson(categories.getJSONObject(i).toString(), HomCategorymodel.class);
+                    HomeCategorymodel homCategorymodel = gson.fromJson(categories.getJSONObject(i).toString(), HomeCategorymodel.class);
                     homCategorymodelList.add(homCategorymodel);
                 }
 
@@ -131,6 +142,34 @@ public class HomeRepository {
         }).executeReq();
 
 
-    }
+    }*/
+
+
+
+
+  public LiveData<Resource<HomeCategoryResponse>> getHomeCategriesandSlider()
+  {
+      return new NetworkBoundResource<HomeCategoryResponse, HomeCategoryResponse>() {
+          @Override
+          protected void saveCallResult(HomeCategoryResponse item) {
+
+          }
+
+          @NonNull
+          @Override
+          protected LiveData<HomeCategoryResponse> loadFromDb() {
+              return new MutableLiveData<HomeCategoryResponse>();
+          }
+
+          @NonNull
+          @Override
+          protected Call<HomeCategoryResponse> createCall() {
+              return retrofitServices.getHomeCategories();
+          }
+      }.getAsLiveData();
+  }
+
+
+
 
 }

@@ -11,18 +11,25 @@ import androidx.viewpager.widget.PagerAdapter;
 
 import com.bumptech.glide.Glide;
 import com.kashif.veterinarypharmacy.R;
+import com.kashif.veterinarypharmacy.home.model.SliderModel;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ViewPagerAdapeter extends PagerAdapter {
-    List<String> imgesList;
+    List<SliderModel> imgesList;
+    List<String> imgesListstring;
     Context context;
     private LayoutInflater inflater;
     private boolean doNotifyDataSetChangedOnce = false;
 
-    public ViewPagerAdapeter(List<String> imgesList, Context context) {
+    public ViewPagerAdapeter(List<SliderModel> imgesList, Context context) {
         this.imgesList = imgesList;
+        this.context = context;
+        inflater = LayoutInflater.from(context);
+    }
+    public ViewPagerAdapeter(List<String> imgesList, Context context,String msg) {
+        this.imgesListstring = imgesList;
         this.context = context;
         inflater = LayoutInflater.from(context);
     }
@@ -46,7 +53,7 @@ public class ViewPagerAdapeter extends PagerAdapter {
         final ImageView imageView = (ImageView) imageLayout
                 .findViewById(R.id.image);
         Glide.with(context)
-                .load(imgesList.get(position))
+                .load(imgesList!=null ? imgesList.get(position).getSlider_image() : imgesListstring.get(position))
                 .centerCrop()
                 .into(imageView);
         container.addView(imageView,0);

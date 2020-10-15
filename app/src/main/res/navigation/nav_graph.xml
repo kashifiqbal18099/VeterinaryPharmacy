@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/nav_graph"
-    app:startDestination="@id/homeFragment2">
+    app:startDestination="@id/page_1">
     <fragment
-        android:id="@+id/homeFragment2"
+        android:id="@+id/page_1"
         android:name="com.kashif.veterinarypharmacy.home.fragment.HomeFragment"
         android:label="HomeFragment" >
         <action
@@ -14,4 +14,8 @@
         android:id="@+id/productListFragment"
         android:name="com.kashif.veterinarypharmacy.home.fragment.ProductListFragment"
         android:label="ProductListFragment" />
+    <fragment
+        android:id="@+id/page_4"
+        android:name="com.kashif.veterinarypharmacy.profile.fragment.ProfileFragment"
+        android:label="Profile" />
 </navigation>

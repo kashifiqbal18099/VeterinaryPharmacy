@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+
+    </data>
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".profile.fragment.ProfileFragment">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_200sdp"
+            android:id="@+id/top_rel"
+            android:background="@color/button_blue">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="@dimen/_80sdp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/_40sdp"
+                android:id="@+id/image_card"
+                app:cardCornerRadius="@dimen/_80sdp"
+                android:elevation="@dimen/_12sdp">
+                <ImageView
+                    android:layout_height="@dimen/_80sdp"
+                    android:layout_width="match_parent"
+                    android:id="@+id/imageView1"
+                    android:src="@drawable/david"
+                    android:scaleType="centerCrop"/>
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/user_name"
+                android:textSize="@dimen/extra_big_text_size"
+                android:textColor="@color/white"
+                android:text="David Beckhum"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/image_card"
+                android:textStyle="bold"
+                android:layout_marginTop="@dimen/_10sdp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/user_email"
+                android:textSize="@dimen/small_text_size"
+                android:textColor="@color/white"
+                android:text="rajakashif18099@outlook.com"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/user_name"
+                android:textStyle="bold"
+                android:layout_marginTop="@dimen/_10sdp"
+                />
+        </RelativeLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/profile_item_rec"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:spanCount="3"
+            android:layout_below="@+id/top_rel"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            />
+
+
+
+    </RelativeLayout>
+</layout>

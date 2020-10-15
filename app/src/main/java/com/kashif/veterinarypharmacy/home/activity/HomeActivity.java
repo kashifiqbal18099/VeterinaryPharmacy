@@ -1,6 +1,8 @@
 package com.kashif.veterinarypharmacy.home.activity;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.navigation.NavController;
+import androidx.navigation.ui.NavigationUI;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,6 +17,8 @@ import com.kashif.veterinarypharmacy.cart.activity.CartActivity;
 import com.kashif.veterinarypharmacy.databinding.ActivityHomeBinding;
 import com.kashif.veterinarypharmacy.util.ClickHandlers;
 
+import static androidx.navigation.Navigation.findNavController;
+
 public class HomeActivity extends BaseActivity<ActivityHomeBinding> implements ClickHandlers {
     private View navHeader;
     public static  HomeActivity instance;
@@ -27,6 +31,7 @@ public class HomeActivity extends BaseActivity<ActivityHomeBinding> implements C
         setNavHeader();
         instance = this;
         dataBinding.top.setClickhandlers(this);
+        SetupBottomNav();
 
     }
 
@@ -114,6 +119,15 @@ public class HomeActivity extends BaseActivity<ActivityHomeBinding> implements C
     public static HomeActivity getInstance()
     {
         return instance;
+    }
+
+
+    public void SetupBottomNav()
+    {
+
+        NavController navController  = findNavController(this,R.id.fragment);
+        NavigationUI.setupWithNavController(dataBinding.bottomNavigation,navController);
+
     }
 
 }

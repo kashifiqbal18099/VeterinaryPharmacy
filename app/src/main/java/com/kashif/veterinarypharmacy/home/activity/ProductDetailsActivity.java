@@ -41,7 +41,7 @@ public class ProductDetailsActivity extends BaseActivity<ActivityProductDetailsB
 
         List<String> list = MyApp.getIntance().GetArrayFromCommaSeperated(productModel.getImage());
         NUM_PAGES = list.size();
-        ViewPagerAdapeter viewPagerAdapeter = new ViewPagerAdapeter(list, this);
+        ViewPagerAdapeter viewPagerAdapeter = new ViewPagerAdapeter(list, this,"");
         dataBinding.viewPager.setAdapter(viewPagerAdapeter);
 
         final Runnable Update = new Runnable() {

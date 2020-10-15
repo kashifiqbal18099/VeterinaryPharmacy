@@ -24,7 +24,7 @@ import com.kashif.veterinarypharmacy.cart.viewmodel.CartViewModel;
 import com.kashif.veterinarypharmacy.databinding.FragmentProductListBinding;
 import com.kashif.veterinarypharmacy.home.activity.HomeActivity;
 import com.kashif.veterinarypharmacy.home.adapter.ProductListAdapter;
-import com.kashif.veterinarypharmacy.home.model.HomCategorymodel;
+import com.kashif.veterinarypharmacy.home.model.HomeCategorymodel;
 import com.kashif.veterinarypharmacy.home.model.ProductModel;
 import com.kashif.veterinarypharmacy.home.viemodel.ProductViewModel;
 import com.kashif.veterinarypharmacy.util.CircleAnimationUtil;
@@ -35,7 +35,7 @@ import java.util.List;
 
 public class ProductListFragment extends BaseFramnet<FragmentProductListBinding> implements ProductListAdapter.ProductListInterface{
 
-    HomCategorymodel homCategorymodel;
+    HomeCategorymodel homCategorymodel;
     ProductViewModel productViewModel;
     CartViewModel cartViewModel;
     ProductListAdapter productListAdapter;

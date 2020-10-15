@@ -6,16 +6,16 @@ import android.os.Parcelable;
 import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
 
-public class HomCategorymodel extends BaseObservable implements Parcelable {
+public class HomeCategorymodel extends BaseObservable implements Parcelable {
     String ID;
     String category_title;
     String category_image;
 
 
-    public HomCategorymodel() {
+    public HomeCategorymodel() {
     }
 
-    public HomCategorymodel(String id, String name, String image) {
+    public HomeCategorymodel(String id, String name, String image) {
         this.ID = id;
         this.category_title = name;
         this.category_image = image;
@@ -61,21 +61,21 @@ public class HomCategorymodel extends BaseObservable implements Parcelable {
         dest.writeString(this.category_image);
     }
 
-    protected HomCategorymodel(Parcel in) {
+    protected HomeCategorymodel(Parcel in) {
         this.ID = in.readString();
         this.category_title = in.readString();
         this.category_image = in.readString();
     }
 
-    public static final Parcelable.Creator<HomCategorymodel> CREATOR = new Parcelable.Creator<HomCategorymodel>() {
+    public static final Parcelable.Creator<HomeCategorymodel> CREATOR = new Parcelable.Creator<HomeCategorymodel>() {
         @Override
-        public HomCategorymodel createFromParcel(Parcel source) {
-            return new HomCategorymodel(source);
+        public HomeCategorymodel createFromParcel(Parcel source) {
+            return new HomeCategorymodel(source);
         }
 
         @Override
-        public HomCategorymodel[] newArray(int size) {
-            return new HomCategorymodel[size];
+        public HomeCategorymodel[] newArray(int size) {
+            return new HomeCategorymodel[size];
         }
     };
 }

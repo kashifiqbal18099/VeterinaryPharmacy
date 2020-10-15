@@ -2,25 +2,24 @@ package com.kashif.veterinarypharmacy.home.adapter;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.view.View;
 
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
 import com.kashif.veterinarypharmacy.R;
 import com.kashif.veterinarypharmacy.base.GenericAdapter;
-import com.kashif.veterinarypharmacy.home.model.HomCategorymodel;
+import com.kashif.veterinarypharmacy.home.model.HomeCategorymodel;
 import com.kashif.veterinarypharmacy.databinding.HomeCategoryItemBinding;
 
 import java.util.List;
 
-public class HomeCategoryAdapter extends GenericAdapter<HomCategorymodel, HomeCategoryItemBinding> {
+public class HomeCategoryAdapter extends GenericAdapter<HomeCategorymodel, HomeCategoryItemBinding> {
 
     Context context;
-    List<HomCategorymodel> homeCategoryModelList;
+    List<HomeCategorymodel> homeCategoryModelList;
 
 
-    public HomeCategoryAdapter(Context context, List<HomCategorymodel> arrayList) {
+    public HomeCategoryAdapter(Context context, List<HomeCategorymodel> arrayList) {
         super(context, arrayList);
         this.context = context;
         this.homeCategoryModelList  = arrayList;
@@ -32,7 +31,7 @@ public class HomeCategoryAdapter extends GenericAdapter<HomCategorymodel, HomeCa
     }
 
     @Override
-    public void onBindData(HomCategorymodel model, int position, HomeCategoryItemBinding dataBinding) {
+    public void onBindData(HomeCategorymodel model, int position, HomeCategoryItemBinding dataBinding) {
 
         dataBinding.setViewmodel(model);
 
@@ -40,7 +39,7 @@ public class HomeCategoryAdapter extends GenericAdapter<HomCategorymodel, HomeCa
     }
 
     @Override
-    public void onItemClick(HomCategorymodel model, int position, HomeCategoryItemBinding dataBinding) {
+    public void onItemClick(HomeCategorymodel model, int position, HomeCategoryItemBinding dataBinding) {
 
         NavController navController =Navigation.findNavController(dataBinding.getRoot());
         Bundle args  = new Bundle();
